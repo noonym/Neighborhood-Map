@@ -104,7 +104,7 @@ function populateInfoWindow(marker, infowindow) {
           articleStr = articleList[i];
           var url = 'http://en.wikipedia.org/wiki/' + articleStr;
           infowindow.setContent('<div>' + marker.title + '<li><a href="' + url + '">' + articleStr + '</a></li></div>');
-        };
+        }
         clearTimeout(wikiRequestTimeout);
       }
     });
