@@ -2,10 +2,10 @@
 <html>
   <head>
   <title>Neighborhood Map</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/styles.css">
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  <script type='text/javascript' src='js/knockout-3.4.2.js'></script>
-  <script src="js/script.js"></script>
+  <script src='js/knockout-3.4.2.js'></script>
   </head>
   <body>
     <!-- The List Menu -->
@@ -28,17 +28,23 @@
       <div id="map"></div>
     </div>
 
-  <!-- For the hamburger button -->
+  <!-- Google Map API -->
+  <script async defer
+    src= "https://maps.googleapis.com/maps/api/js?key=AIzaSyApYwzS40zYg5L89idkZpH7yqwbfjEJiEs&callback=initMap" onerror="mapError()">
+  </script>
+
+    <!-- For the hamburger button -->
   <script>
   $(".hamburger").click(function(){
     $(".menu").toggleClass("expandMenu");
   });
+
+  function mapError(){
+  	alert('Google Map could not be loaded.');
+  }
   </script>
 
-  <!-- Google Map API -->
-  <script async defer
-    src= "https://maps.googleapis.com/maps/api/js?key=AIzaSyApYwzS40zYg5L89idkZpH7yqwbfjEJiEs&callback=initMap">
-  </script>
+  <script src="js/script.js"></script>
 
   </body>
 </html>
