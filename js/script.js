@@ -91,6 +91,9 @@ function initMap() {
     //This function used for showing an infowindow by clicking on the list
     clickedList: function(marker) {
       populateInfoWindow(marker, largeInfowindow);
+      //Animate the selected marker
+      marker.setAnimation(google.maps.Animation.BOUNCE);
+      stopAnimation(marker);
     }
   };
   ko.applyBindings(viewModel);
@@ -146,11 +149,12 @@ function showInfoWindow(marker, largeInfowindow) {
     //Animate the selected marker
     this.setAnimation(google.maps.Animation.BOUNCE);
     stopAnimation(this);
-    //Stops the marker animation after 0.5 sec.
-    function stopAnimation(marker) {
-      setTimeout(function() {
-        marker.setAnimation(null);
-      }, 500);
-    }
   });
+}
+
+//Stops the marker animation after 0.5 sec.
+function stopAnimation(marker) {
+  setTimeout(function() {
+    marker.setAnimation(null);
+  }, 500);
 }
